@@ -2,18 +2,20 @@ import setuptools
 
 VERSION = "test"
 with open("OpenAttack/version.py", "r") as fver:
-    VERSION = fver.read().replace("VERSION", "").replace("=", "").replace("\"", "").strip()
+    VERSION = (
+        fver.read().replace("VERSION", "").replace("=", "").replace('"', "").strip()
+    )
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 requirements = []
-with  open("requirements.txt") as freq:
+with open("requirements.txt") as freq:
     for line in freq.readlines():
-        requirements.append( line.strip() )
+        requirements.append(line.strip())
 
 setuptools.setup(
-    name="OpenAttack",  # Replace with your own username
+    name="OpenAttack",
     version=VERSION,
     author="THUNLP",
     author_email="thunlp@gmail.com",
@@ -28,5 +30,5 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.6",
-    install_requires=requirements
+    install_requires=requirements,
 )
